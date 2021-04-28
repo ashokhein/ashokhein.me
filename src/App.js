@@ -6,8 +6,18 @@ import styles from './App.module.css'
 import { Grid, CardContent, Card, CardMedia, CardActionArea, CardActions, Button } from '@material-ui/core';
 import coronaImage from './images/coranaImage.png'
 import geopins from './images/geopins.png'
+import useHotjar from 'react-use-hotjar';
+
+const myCustomLogger = console.info;
 
 const App = () => {
+
+  const { initHotjar } = useHotjar();
+
+  React.useEffect(() => {
+    initHotjar(2374355, 6, myCustomLogger);
+  }, [initHotjar]);
+
   return (
     <>
       <AppBar position="static">
